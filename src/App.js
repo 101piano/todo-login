@@ -2,25 +2,9 @@ import React, { Component } from 'react';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import * as localStore from './localStore';
-import './App.css';
+import './css/App.css';
 import 'normalize.css';
-import './reset.css';
-
-import AV from 'leancloud-storage';
-var APP_ID = 'GmTPidG1lqD9GWEgzlGGBNv0-gzGzoHsz';
-var APP_KEY = '4PhV6iAIiYKhBsJtjWnn6bV8';
-AV.init({
-  appId: APP_ID,
-  appKey: APP_KEY
-});
-
-var TestObject = AV.Object.extend('TestObject');
-var testObject = new TestObject();
-testObject.save({
-  words: 'Hello World!'
-}).then(function(object) {
-  alert('LeanCloud Rocks!');
-})
+import './css/reset.css';
 
 
 

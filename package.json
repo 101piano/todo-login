@@ -1,6 +1,6 @@
 {
-  "homepage": "https://101piano.github.io/todo-list/build",
-  "name": "todo-list",
+  "homepage": "https://101piano.github.io/todo-login/build",
+  "name": "todo-login",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
