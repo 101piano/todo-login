@@ -1,0 +1,60 @@
+.TodoItem {
+  padding: .5em;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background-color: #E4F5FC;
+  border:1px solid transparent;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.TodoItem input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+}
+.TodoItem > .title{
+  flex-grow: 1;
+  padding: 0 .5em;
+}
+.TodoItem .delete {
+  position: relative;
+  width: 23px;
+  height: 23px;
+}
+.TodoItem .circle {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  background-color: #ccc;
+  top: 50%;
+  margin-top: -12px;
+  right: 0; 
+  cursor: pointer;
+}
+.TodoItem .circle p {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-top: -12px;
+  margin-left: -6px;
+  color: #fff;
+  line-height: 23px;
+  font-size: 40px;
+  text-align: center;
+}
+
+
+.doneItem .TodoItem {
+  background-color: #ccc !important;
+}
+
+
+
+
+
+
+
+
+

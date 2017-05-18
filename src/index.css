@@ -1,0 +1,9 @@
+body {
+  background: #ddd;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#root {
+  display: flex;
+  justify-content:center;
+  min-height: 100vh;
+}
