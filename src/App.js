@@ -11,31 +11,35 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      user: getCurrentUser() || {},
-      newTodo: '',
-      todoList: []
+      user: getCurrentUser() || {} ,
     };
   }
-  
+ 
   render() {  
+   //console.log(this.state.user);
+   //console.log(JSON.stringify(this.state.user));
     return (
-      <div className='App'>
-        <ToDo />
-        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)}/> }  
+      <div className='App'>       
+        {this.state.user.id ? 
+          <ToDo user={JSON.stringify(this.state.user)}/> : 
+          <UserDialog 
+            onSignUp={this.onSignUpOrSignIn.bind(this)}
+            onSignIn={this.onSignUpOrSignIn.bind(this)}/>}  
       </div>
     );
   }
   
 
   /*与注册登录相关的函数*/
-  onSignUp(user){
-    let stateCopy=JSON.parse(JSON.stringfy(this.state));
-    stateCopy.user=user;   
+  onSignUpOrSignIn(user){
+    let stateCopy=JSON.parse(JSON.stringify(this.state));
+    stateCopy.user=user;
     this.setState(stateCopy);
   }
   signOut(){
     signOut();
     let stateCopy=JSON.parse(JSON.stringify(this.state));
+    console.log(stateCopy);
     stateCopy.user={};
     this.setState(stateCopy);
   }

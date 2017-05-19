@@ -14,8 +14,6 @@ class TodoInput extends Component {
   }
   
   changeTitle(e){
-   // console.log(e);
-    //console.log(this);//this:TodoInput类
     this.props.onChange(e);
   }
   submit(e){   

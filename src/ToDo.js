@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
+import {signOut} from './leanCloud';
 
 class ToDo extends Component{
   constructor(props){
@@ -22,8 +23,8 @@ class ToDo extends Component{
                       onDelete={this.delete.bind(this)}/>
                   </li>
                 )
-              });
-    let dones=this.state.todoList
+              }),
+        dones=this.state.todoList
               .filter((item)=> !item.delete && item.status==='completed')
               .map((item,index)=>{
                 return(
@@ -33,13 +34,19 @@ class ToDo extends Component{
                      onDelete={this.delete.bind(this)} />
                   </li>
                 )
-              });
-    
+              }),
+        user=JSON.parse(this.props.user);
+      console.log(user.id);
+ 
     return (
       <div className='myToDo'>
-        <h1>我的待办</h1>
+        <h1>
+          {user.username || '我'}的待办
+          {user.id ? <button onClick={this.signOut.bind(this)}>quite</button> : null}
+        </h1>
         <div className='inputWrapper'>
           <TodoInput content={this.state.newTodo}
+          
             onChange={this.changeTitle.bind(this)}
             onSubmit={this.addTodo.bind(this)}/>
         </div>
@@ -87,6 +94,10 @@ class ToDo extends Component{
   delete(e,todo){
     todo.delete=true;
     this.setState(this.state);
+  }
+  
+  signOut(){
+    signOut();
   }
   
 }
