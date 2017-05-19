@@ -16,7 +16,6 @@ class App extends Component {
   }
  
   render() {  
-   //console.log(this.state.user);
    //console.log(JSON.stringify(this.state.user));
    console.log('你好');
     return (
