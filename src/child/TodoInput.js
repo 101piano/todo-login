@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './css/TodoInput.css';
+import './../css/TodoInput.css';
 
 class TodoInput extends Component {
   render(){
@@ -26,13 +26,7 @@ class TodoInput extends Component {
 }
 export default TodoInput
 
-/*
-value={this.props.content} 从父组件获取值
 
-
-
-
-*/
 
 
 

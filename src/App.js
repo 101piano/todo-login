@@ -1,109 +1,51 @@
 import React, { Component } from 'react';
-import TodoInput from './TodoInput';
-import TodoItem from './TodoItem';
+import ToDo from './ToDo';
 import './css/App.css';
 import 'normalize.css';
 import './css/reset.css';
-
+import UserDialog from './UserDialog';
+import {getCurrentUser,signOut} from './leanCloud';
 
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
+      user: getCurrentUser() || {},
       newTodo: '',
       todoList: []
     };
   }
   
   render() {  
-    let todos=this.state.todoList
-              .filter((item)=> !item.delete && !(item.status==='completed'))
-              .map((item,index)=>{
-                return(
-                  <li key={index}>
-                    <TodoItem todo={item} 
-                      onToggle={this.toggle.bind(this)}
-                      onDelete={this.delete.bind(this)}/>
-                  </li>
-                )
-              });
-    let dones=this.state.todoList
-              .filter((item)=> !item.delete && item.status==='completed')
-              .map((item,index)=>{
-                return(
-                  <li key={index} className='doneItem'>
-                    <TodoItem todo={item}
-                     onToggle={this.toggle.bind(this)}
-                     onDelete={this.delete.bind(this)} />
-                  </li>
-                )
-              });
     return (
       <div className='App'>
-        <h1>我的待办</h1>
-        <div className='inputWrapper'>
-          <TodoInput content={this.state.newTodo}
-            onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)}/>
-        </div>
-        <div className='toDoing'>
-          <h2>正在进行</h2>
-          <ol className='todoList'>
-            {todos}
-          </ol>
-        </div>
-        <div className='haveDone'>
-          <h2>已经完成</h2>
-          <ol className='doneList'>
-          {dones}
-          </ol>
-        </div>  
-            
+        <ToDo />
+        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)}/> }  
       </div>
     );
   }
   
-  componentDidUpdate(){
-    
+
+  /*与注册登录相关的函数*/
+  onSignUp(user){
+    let stateCopy=JSON.parse(JSON.stringfy(this.state));
+    stateCopy.user=user;   
+    this.setState(stateCopy);
+  }
+  signOut(){
+    signOut();
+    let stateCopy=JSON.parse(JSON.stringify(this.state));
+    stateCopy.user={};
+    this.setState(stateCopy);
   }
   
-  changeTitle(e){
-    this.setState({
-      newTodo: e.target.value,
-      todoList: this.state.todoList
-    });
-  }
-  addTodo(e){
-    this.state.todoList.push({
-      id:idMaker(),
-      title:e.target.value,
-      status: null,
-      deleted: false
-    });
-    this.setState({
-      newTodo:'',
-      tododList:this.state.todoList
-    }); 
-  }
-  toggle(e,todo){
-    todo.status=todo.status==='completed' ? '':'completed';
-    this.setState(this.state);
-  }
-  delete(e,todo){
-    todo.delete=true;
-    this.setState(this.state);
-  }
   
-}
+  /*与todo相关的函数*/
+} 
 
-export default App;
+export default App
 
-let id=0;
-function idMaker(){
-  id+=1;
-  return id;
-}
 
 
 
