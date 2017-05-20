@@ -1,8 +1,26 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 238549 */
+  src: url('//at.alicdn.com/t/font_k1bhjvrxvbwqaor.eot');
+  src: url('//at.alicdn.com/t/font_k1bhjvrxvbwqaor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_k1bhjvrxvbwqaor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_k1bhjvrxvbwqaor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_k1bhjvrxvbwqaor.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+
 .UserDialog-Wrapper {
   position: fixed;
-  top: 0;
+  top: 5em;
   left: 0;
-  bottom: 0;
   right: 0;
   display: flex;
   justify-content:center;
@@ -13,20 +31,23 @@
   border: 1px solid;
   border-radius: 4px;
   min-width: 20em;
-  background: white;
+  background: transparent;
   border: 1px solid #aaa;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
-
-.UserDialog > nav:first-child {
-  padding: 1em;
-  margin-left: -2em;
-}
 .UserDialog > nav:first-child label {
-  margin-left: 2em;
+  width: 50%;
+  box-sizing: box-border;
+  display: inline-block;  
+  padding: 0.8em;
+  text-align: center;
   cursor: pointer;
+  background-color:#23bFB0;
+  margin-bottom: 1em;
 }
-
+.UserDialog > nav:first-child label input[type=radio] { 
+  display: none;
+}
 .UserDialog > .panes {
   padding: 0 1em 1em; 
 }

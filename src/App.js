@@ -17,11 +17,10 @@ class App extends Component {
  
   render() {  
    //console.log(JSON.stringify(this.state.user));
-   console.log('你好');
     return (
       <div className='App'>       
         {this.state.user.id ? 
-          <ToDo user={JSON.stringify(this.state.user)}/> : 
+          <ToDo user={JSON.parse(JSON.stringify(this.state.user))}/> : 
           <UserDialog 
             onSignUp={this.onSignUpOrSignIn.bind(this)}
             onSignIn={this.onSignUpOrSignIn.bind(this)}/>}  
@@ -31,7 +30,7 @@ class App extends Component {
   
 
   /*与注册登录相关的函数*/
-  onSignUpOrSignIn(user){
+  onSignUpOrSignIn(user){    //不直接把this.state赋值给stateCopy，先深拷贝一份再进行修改
     let stateCopy=JSON.parse(JSON.stringify(this.state));
     stateCopy.user=user;
     this.setState(stateCopy);
@@ -39,7 +38,6 @@ class App extends Component {
   signOut(){
     signOut();
     let stateCopy=JSON.parse(JSON.stringify(this.state));
-    console.log(stateCopy);
     stateCopy.user={};
     this.setState(stateCopy);
   }

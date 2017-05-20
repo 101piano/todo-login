@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import {signOut} from './leanCloud';
+import './css/ToDo.css';
 
 class ToDo extends Component{
   constructor(props){
@@ -35,7 +36,7 @@ class ToDo extends Component{
                   </li>
                 )
               }),
-        user=JSON.parse(this.props.user);
+        user=this.props.user;
       console.log(user.id);
  
     return (
@@ -98,6 +99,9 @@ class ToDo extends Component{
   
   signOut(){
     signOut();
+    let stateCopy=JSON.parse(JSON.stringify(this.state));
+    stateCopy.user={};
+    this.setState(stateCopy);//ÐÞ¸Ä×´Ì¬
   }
   
 }
