@@ -13,12 +13,26 @@ class UserDialog extends Component {
       }
     };
   }
-  
+  componentDidUpdate(){
+    this.changeColor(this.state.selected);
+  }
+    
   switch(e){
     this.setState({
       selected: e.target.value
-    });
+    });  
   }
+  
+  changeColor(selected){
+    let nav0=document.getElementsByTagName('nav')[0];   
+    if(selected==='signIn'){   
+      nav0.getElementsByTagName('label')[0].classList.add('active');
+      nav0.getElementsByTagName('label')[1].classList.remove('active');
+    }else if(selected==='signUp'){
+      nav0.getElementsByTagName('label')[1].classList.add('active');
+      nav0.getElementsByTagName('label')[0].classList.remove('active');
+    }
+  } 
   
   signUp(e){
     e.preventDefault();
@@ -29,7 +43,7 @@ class UserDialog extends Component {
     let error=(error)=>{
       switch(error.code){
         case 202:
-          alert('ÓÃ»§ÃûÒÑ±»Õ¼ÓÃ');
+          alert('ç”¨æˆ·åå·²è¢«å ç”¨');
           break;
         default:
           alert(error);
@@ -48,7 +62,7 @@ class UserDialog extends Component {
     let error=(error)=>{
       switch(error.code){
         case 210:
-          alert('ÓÃ»§ÃûÓëÃÜÂë²»Æ¥Åä');
+          alert('ç”¨æˆ·åä¸å¯†ç ä¸åŒ¹é…');
           break;
         default:
           alert(error);
@@ -63,11 +77,11 @@ class UserDialog extends Component {
     stateCopy.formData[key]=e.target.value;
     this.setState(stateCopy);
   }
-
+  
   
   render(){
     let signUpForm=(
-      <form className='signUp' onSubmit={this.signUp.bind(this)}> {/*×¢²á*/}
+      <form className='signUp' onSubmit={this.signUp.bind(this)}> {/*æ³¨å†Œ*/}
         <div className='row'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.state.formData.username} 
@@ -84,7 +98,7 @@ class UserDialog extends Component {
       </form>   
     );
     let signInForm=(
-      <form className='signUp' onSubmit={this.signIn.bind(this)}> {/*µÇÂ¼*/}
+      <form className='signUp' onSubmit={this.signIn.bind(this)}> {/*ç™»å½•*/}
         <div className='row'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.state.formData.username}
@@ -105,8 +119,8 @@ class UserDialog extends Component {
       <div className='UserDialog-Wrapper'>
         <div className='UserDialog'>
           <nav>
-            <label>
-              <input type='radio' value='signIn' 
+            <label  className='active'>
+              <input type='radio' value='signIn'
                 checked={this.state.selected==='signIn'}  
                 onChange={this.switch.bind(this)}/>signIn
             </label>

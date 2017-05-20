@@ -8,10 +8,13 @@
 }
 .iconfont{
   font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
+  font-size:25px;
+  font-style:normal;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
+  padding-left: 5px;
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
 }
 
 .UserDialog-Wrapper {
@@ -28,33 +31,82 @@
   border: 1px solid;
   border-radius: 4px;
   min-width: 20em;
-  background: transparent;
+  background: #fff;
   border: 1px solid #aaa;
-  box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
-.UserDialog > nav:first-child label {
+.UserDialog > nav {
+  border-bottom: 1px solid #eee;
+  padding: 1em 0;
+}
+.UserDialog > nav label {
   width: 50%;
-  box-sizing: box-border;
+  box-sizing: border-box;
   display: inline-block;  
-  padding: 0.8em;
   text-align: center;
   cursor: pointer;
-  background-color:#23bFB0;
-  margin-bottom: 1em;
 }
-.UserDialog > nav:first-child label input[type=radio] { 
+.UserDialog > nav label:first-child {
+  border-right: 1px solid #eee;
+}
+.UserDialog > nav label input[type=radio] { 
   display: none;
 }
 .UserDialog > .panes {
   padding: 0 1em 1em; 
 }
 .UserDialog form>.row{
+  height: 2.5em;
+  margin: 2em 0;
   display: flex;
-  padding: .3em 0; 
+  border: 1px solid #ccc;
 }
-.UserDialog form>.row>label:first-child {
-  width: 4em;
+.UserDialog form>.row input { 
+  margin-left: 5px;
+  width: 95%;
+  height: 100%;
+  border: none;
+  outline: none;
 }
-.UserDialog form>.row.actions{
-  padding-left: 4em; 
+.UserDialog form>.row button {
+  width: 100%;
+  padding: 0.5em 2em;  
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background-color: #E4393C;
 }
+.active {
+  color: #E4393C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
