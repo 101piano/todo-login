@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './css/UserDialog.css';
 import {signUp,signIn} from './leanCloud';
+import {deepCopy} from './App';
 
 class UserDialog extends Component {
   constructor(props){
@@ -17,7 +18,7 @@ class UserDialog extends Component {
     this.changeColor(this.state.selected);
   }
     
-  switch(e){
+  switchOpt(e){
     this.setState({
       selected: e.target.value
     });  
@@ -61,8 +62,17 @@ class UserDialog extends Component {
     };
     let error=(error)=>{
       switch(error.code){
+        case 200:
+          alert('请输入用户名');
+          break;
+        case 201:
+          alert('请输入密码');
+          break;
         case 210:
           alert('用户名与密码不匹配');
+          break;
+        case 211:
+          alert('找不到用户');
           break;
         default:
           alert(error);
@@ -73,7 +83,7 @@ class UserDialog extends Component {
   }
   
   changeFormData(key,e){
-    let stateCopy=JSON.parse(JSON.stringify(this.state));
+    let stateCopy=deepCopy(this.state);
     stateCopy.formData[key]=e.target.value;
     this.setState(stateCopy);
   }
@@ -81,7 +91,7 @@ class UserDialog extends Component {
   
   render(){
     let signUpForm=(
-      <form className='signUp' onSubmit={this.signUp.bind(this)}> {/*注册*/}
+      <form className='signUp' onSubmit={this.signUp.bind(this)}>
         <div className='row'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.state.formData.username} 
@@ -93,12 +103,12 @@ class UserDialog extends Component {
             onChange={this.changeFormData.bind(this,'password')}/>
         </div>
         <div className='row actions'>
-          <button type='submit'>signUp</button>
+          <button type='submit'>注册</button>
         </div>
       </form>   
     );
     let signInForm=(
-      <form className='signUp' onSubmit={this.signIn.bind(this)}> {/*登录*/}
+      <form className='signUp' onSubmit={this.signIn.bind(this)}> 
         <div className='row'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.state.formData.username}
@@ -110,7 +120,7 @@ class UserDialog extends Component {
             onChange={this.changeFormData.bind(this,'password')}/>
         </div>
         <div className='row actions'>
-          <button type='submit'>signIn</button>
+          <button type='submit'>登录</button>
         </div>
       </form>
     );
@@ -122,12 +132,12 @@ class UserDialog extends Component {
             <label  className='active'>
               <input type='radio' value='signIn'
                 checked={this.state.selected==='signIn'}  
-                onChange={this.switch.bind(this)}/>signIn
+                onChange={this.switchOpt.bind(this)}/>登录
             </label>
             <label>
               <input type='radio' value='signUp' 
                 checked={this.state.selected==='signUp'}  
-                onChange={this.switch.bind(this)} />signUp
+                onChange={this.switchOpt.bind(this)} />注册
             </label>
           </nav>
           <div className='panes'>

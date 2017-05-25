@@ -13,4 +13,12 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.myToDo .quit {
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  cursor: pointer;
+  margin-left: 3em;
+  outline: none;
+}
 

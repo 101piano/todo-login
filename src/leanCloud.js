@@ -1,5 +1,6 @@
-
 import AV from 'leancloud-storage';
+
+
 var APP_ID = 'LzQW0DEPEdxCqtgo9ePKkzsm-gzGzoHsz';
 var APP_KEY = 'F4tJ4JqjmUChkRhLNsAbt99r';
 AV.init({
@@ -16,13 +17,25 @@ export function signUp(username,password,successFn,errorFn){
   //设置密码
   user.setPassword(password);
   //设置邮箱
+  
+  //设置一个todo属性
+  user.set('todo','');
   user.signUp().then(function(loginedUser){
     let user = getUserFromAVUser(loginedUser);
-    successFn.call(null,user)
+    successFn.call(null,user);  
   },function(error){
     errorFn.call(null,error);
   });
   return undefined
+}
+
+export function signIn(username, password, successFn, errorFn){
+  AV.User.logIn(username, password).then(function (loginedUser) {
+    let user = getUserFromAVUser(loginedUser);
+    successFn.call(null, user);
+  }, function (error) {
+    errorFn.call(null, error);
+  })
 }
 
 export function getCurrentUser(){
@@ -30,22 +43,13 @@ export function getCurrentUser(){
   if(user){
     return getUserFromAVUser(user);
   }else {
-    return null
+    return null;
   }
 }
 
 export function signOut(){
   AV.User.logOut();
   return undefined;
-}
-
-export function signIn(username, password, successFn, errorFn){
-  AV.User.logIn(username, password).then(function (loginedUser) {
-    let user = getUserFromAVUser(loginedUser)
-    successFn.call(null, user)
-  }, function (error) {
-    errorFn.call(null, error)
-  })
 }
 
 function getUserFromAVUser(AVUser){
