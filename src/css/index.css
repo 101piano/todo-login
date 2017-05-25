@@ -1,6 +1,6 @@
 body {
   background: #ddd;
-  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  font-family: tahoma, arial, 'Hiragino Sans GB', 宋体, sans-serif;
 }
 #root {
   display: flex;

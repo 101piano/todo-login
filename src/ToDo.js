@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+ï»¿import React,{Component} from 'react';
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import './css/ToDo.css';
@@ -43,8 +43,8 @@ class ToDo extends Component{
     return (
       <div className='myToDo'>
         <h1>
-          {user.username || 'ÎÒ'}µÄ´ı°ì
-          {user.id ? <button className='quit' onClick={this.signOut.bind(this)}>tuichu</button> : null}
+          {user.username || 'æˆ‘'}çš„å¾…åŠ
+          {user.id ? <button className='quit' onClick={this.signOut.bind(this)}>é€€å‡º</button> : null}
         </h1>
         <div className='inputWrapper'>
           <TodoInput content={this.state.newTodo}       
@@ -52,13 +52,13 @@ class ToDo extends Component{
             onSubmit={this.addTodo.bind(this)}/>
         </div>
         <div className='toDoing'>
-          <h2>ÕıÔÚ½øĞĞ</h2>
+          <h2>æ­£åœ¨è¿›è¡Œ</h2>
           <ol className='todoList'>
             {todos}
           </ol>
         </div>
         <div className='haveDone'>
-          <h2>ÒÑ¾­Íê³É</h2>
+          <h2>å·²ç»å®Œæˆ</h2>
           <ol className='doneList'>
             {dones}
           </ol>
@@ -72,7 +72,7 @@ class ToDo extends Component{
   } 
 
   
-  //ÓëtodoÏà¹ØµÄº¯Êı 
+  //ä¸todoç›¸å…³çš„å‡½æ•° 
   changeTitle(e){
     this.setState({
       newTodo: e.target.value,
@@ -91,7 +91,7 @@ class ToDo extends Component{
       newTodo:'',
       tododList:this.state.todoList
     }); 
-    this.save();
+   
   }
   
   toggle(e,todo){
@@ -104,23 +104,23 @@ class ToDo extends Component{
     this.setState(this.state);    
   }
   
-  //ÓëleanCloudÏà¹ØµÄº¯Êı 
+  //ä¸leanCloudç›¸å…³çš„å‡½æ•° 
   signOut(){
     signOut();
     let stateCopy=JSON.parse(JSON.stringify(this.state));
-    console.log('ÍË³ö³É¹¦');
+    console.log('é€€å‡ºæˆåŠŸ');
     stateCopy.user={};
-    this.setState(stateCopy);//ĞŞ¸Ä×´Ì¬
+    this.setState(stateCopy);//ä¿®æ”¹çŠ¶æ€
   }
   
-  //±£´ætodo
+  //ä¿å­˜todo
   /*save(){
     let user=getCurrentUser();
-    console.log('¿ªÊ¼±£´æ');
+    console.log('å¼€å§‹ä¿å­˜');
     console.log(user.id);
     let todo = AV.Object.createWithoutData('_User', user.id);
     todo.set('todo',deepCopy(this.state.todoList));
-    todo.save();//±£´æµ½ÔÆ¶Ë
+    todo.save();//ä¿å­˜åˆ°äº‘ç«¯
   }*/
   
  
@@ -134,21 +134,6 @@ function idMaker(){
   id+=1;
   return id;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
