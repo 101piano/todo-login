@@ -1,9 +1,9 @@
 import React,{Component}from 'react';
 
-export default class SignUpForm extends Component {
+export default class SignInForm extends Component {
   render(){
     return (
-      <form className='signUp' onSubmit={this.props.onSubmit}> 
+      <form className='signIn' onSubmit={this.props.onSubmit}> 
         <div className='row inputbtn'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.props.formData.username}
