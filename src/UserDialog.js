@@ -8,6 +8,7 @@ class UserDialog extends Component {
     super(props);
     this.state={
       selected: 'signIn',
+      selectedTab: 'signInOrSignUp',
       formData: {
         email:'',
         username: '',
@@ -126,15 +127,13 @@ class UserDialog extends Component {
             onChange={this.changeFormData.bind(this,'password')}/>
         </div>
         <div className='row actions'>
-          <a href='javascript:;'>忘记密码</a>
+          <a href='#' onClick={this.showForgotPassword.bind(this)}>忘记密码</a>
           <button type='submit'>登录</button>
         </div>
       </form>
     );
-    
-    return (
-      <div className='UserDialog-Wrapper'>
-        <div className='UserDialog'>
+    let signInOrSignUp=(    
+        <div className='signInOrSignUp'>
           <nav>
             <label  className='active'>
               <input type='radio' value='signIn'
@@ -151,9 +150,36 @@ class UserDialog extends Component {
             {this.state.selected === 'signUp' ? signUpForm: null}
             {this.state.selected === 'signIn' ? signInForm: null}           
           </div>
+        </div>  
+    );
+    let forgotPassword=(
+      <div className='forgotPassword'>
+        <h3>重置密码</h3>
+        <form className='forgotPassword' onSubmit={this.resetPassword.bind(this)}>
+          <div  className='row'>
+            <label>邮箱</label>
+            <input type='text' value={this.state.formData.email}
+              onChange={this.changeFormData.bind(this,'email')}/>
+          </div>
+          <div className='row actions'>
+            <button type='submit'>发送重置邮件</button>
+          </div>
+        </form>
+      </div>
+    );
+    return (
+      <div className='UserDialog-Wrapper'>
+        <div className='UserDialog'>
+          {this.state.selectedTab==='signInOrSignUp' ? signInOrSignUp : forgotPassword }
         </div>
       </div>   
     )
+  }
+  
+  showForgotPassword(){
+    let stateCopy=deepCopy(this.state);
+    stateCopy.selectedTab='forgotPassword';
+    this.setState(stateCopy);
   }
 }
 
