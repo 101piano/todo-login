@@ -2,16 +2,14 @@ import React,{Component} from 'react';
 import './css/UserDialog.css';
 import {signUp,signIn,sendPasswordResetEmail} from './leanCloud';
 import {deepCopy} from './App';
-import SignUpForm from './child/SignUpForm';
-import SignInForm from './child/SignInForm';
-import ForgotPasswordForm from './child/ForgotPasswordForm';  
+import ForgotPasswordForm from './child/ForgotPasswordForm';
+import SignInOrSignUp from './child/SignInOrSignUp';  
   
 
 class UserDialog extends Component {
   constructor(props){
     super(props);
     this.state={
-      selected: 'signIn',
       selectedTab: 'signInOrSignUp',
       formData: {
         email:'',
@@ -20,16 +18,35 @@ class UserDialog extends Component {
       }
     };
   }
+     
+  render(){
+    return (
+      <div className='UserDialog-Wrapper'>
+        <div className='UserDialog'>
+          {this.state.selectedTab==='signInOrSignUp' ? 
+            <SignInOrSignUp 
+              formData={this.state.formData}
+              onSignIn={this.signIn.bind(this)}
+              onSignUp={this.signUp.bind(this)}
+              onChange={this.changeFormData.bind(this)}
+              onForgotPassword={this.showForgotPassword.bind(this)}
+            />: 
+            <ForgotPasswordForm 
+              formData={this.state.formData}
+              onSubmit={this.resetPassword.bind(this)}
+              onChange={this.changeFormData.bind(this)}
+              onSignIn={this.returnToSignIn.bind(this)}
+            />
+          }
+        </div>
+      </div>   
+    )
+  }
+  
   componentDidUpdate(){
     if(this.state.selectedTab==='signInOrSignUp'){
       this.changeColor(this.state.selected);
     }    
-  }
-    
-  switchOpt(e){
-    this.setState({
-      selected: e.target.value
-    });  
   }
   
   changeColor(selected){
@@ -96,53 +113,6 @@ class UserDialog extends Component {
     this.setState(stateCopy);
   }
   
-  
-  render(){
-    let signInOrSignUp=(    
-        <div className='signInOrSignUp'>
-          <nav>
-            <label  className='active'>
-              <input type='radio' value='signIn'
-                checked={this.state.selected==='signIn'}  
-                onChange={this.switchOpt.bind(this)}/>登录
-            </label>
-            <label>
-              <input type='radio' value='signUp' 
-                checked={this.state.selected==='signUp'}  
-                onChange={this.switchOpt.bind(this)} />注册
-            </label>
-          </nav>
-          <div className='panes'>
-            {this.state.selected === 'signUp' ? 
-              <SignUpForm formData={this.state.formData}
-                onSubmit={this.signUp.bind(this)}
-                onChange={this.changeFormData.bind(this)} />
-              : null}
-            {this.state.selected === 'signIn' ? 
-              <SignInForm formData={this.state.formData}
-                onSubmit={this.signUp.bind(this)}
-                onChange={this.changeFormData.bind(this)}
-                onForgotPassword={this.showForgotPassword.bind(this)}/>
-              : null}           
-          </div>
-        </div>  
-    );
-  
-    return (
-      <div className='UserDialog-Wrapper'>
-        <div className='UserDialog'>
-          {this.state.selectedTab==='signInOrSignUp' ? 
-            signInOrSignUp : 
-            <ForgotPasswordForm 
-              formData={this.state.formData}
-              onSubmit={this.resetPassword.bind(this)}
-              onChange={this.changeFormData.bind(this)}
-              onSignIn={this.returnToSignIn.bind(this)}
-            />}
-        </div>
-      </div>   
-    )
-  }
   
   showForgotPassword(){
     let stateCopy=deepCopy(this.state);
