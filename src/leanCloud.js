@@ -18,8 +18,6 @@ export function signUp(email,username,password,successFn,errorFn){
   user.setPassword(password);
   //设置邮箱
   user.setEmail(email);
-  //添加todo属性
-  //user.set('todo',null);
   user.signUp().then(function(loginedUser){
     let user = getUserFromAVUser(loginedUser);
     successFn.call(null,user);  

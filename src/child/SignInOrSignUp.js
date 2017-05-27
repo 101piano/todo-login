@@ -37,7 +37,7 @@ export default class SignInOrSignUp extends Component {
               <SignInForm formData={this.props.formData}
                 onSubmit={this.props.onSignIn}
                 onChange={this.props.onChange}
-                onForgotPassword={this.props.onForgotword}
+                onForgotPassword={this.props.onForgotPassword}
               />
               : null}           
           </div>
@@ -45,13 +45,22 @@ export default class SignInOrSignUp extends Component {
     )
   }
   
+  componentDidUpdate(){
+    this.changeColor(this.state.selected);      
+  }
   
+  changeColor(selected){
+    let nav0=document.getElementsByTagName('nav')[0];
+    if(selected==='signIn'){   
+      nav0.getElementsByTagName('label')[0].classList.add('active');
+      nav0.getElementsByTagName('label')[1].classList.remove('active');
+    }else if(selected==='signUp'){
+      nav0.getElementsByTagName('label')[1].classList.add('active');
+      nav0.getElementsByTagName('label')[0].classList.remove('active');
+    }
+  } 
   
-  
-  
-  
-  
-  
+
   switchOpt(e){
     this.setState({
       selected: e.target.value

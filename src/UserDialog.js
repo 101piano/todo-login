@@ -29,12 +29,12 @@ class UserDialog extends Component {
               onSignIn={this.signIn.bind(this)}
               onSignUp={this.signUp.bind(this)}
               onChange={this.changeFormData.bind(this)}
-              onForgotPassword={this.showForgotPassword.bind(this)}
+              onForgotPassword={this.showForgotPassword.bind(this)} 
             />: 
             <ForgotPasswordForm 
               formData={this.state.formData}
-              onSubmit={this.resetPassword.bind(this)}
-              onChange={this.changeFormData.bind(this)}
+              onSubmit={this.resetPassword.bind(this)} 
+              onChange={this.changeFormData.bind(this)} 
               onSignIn={this.returnToSignIn.bind(this)}
             />
           }
@@ -42,23 +42,6 @@ class UserDialog extends Component {
       </div>   
     )
   }
-  
-  componentDidUpdate(){
-    if(this.state.selectedTab==='signInOrSignUp'){
-      this.changeColor(this.state.selected);
-    }    
-  }
-  
-  changeColor(selected){
-    let nav0=document.getElementsByTagName('nav')[0];
-    if(selected==='signIn'){   
-      nav0.getElementsByTagName('label')[0].classList.add('active');
-      nav0.getElementsByTagName('label')[1].classList.remove('active');
-    }else if(selected==='signUp'){
-      nav0.getElementsByTagName('label')[1].classList.add('active');
-      nav0.getElementsByTagName('label')[0].classList.remove('active');
-    }
-  } 
   
   signUp(e){
     e.preventDefault();
@@ -115,9 +98,11 @@ class UserDialog extends Component {
   
   
   showForgotPassword(){
+   // debugger;
     let stateCopy=deepCopy(this.state);
     stateCopy.selectedTab='forgotPassword';
     this.setState(stateCopy);
+   
   }
   
   resetPassword(e){
