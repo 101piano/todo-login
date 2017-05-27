@@ -9,8 +9,9 @@ class UserDialog extends Component {
     this.state={
       selected: 'signIn',
       formData: {
+        email:'',
         username: '',
-        password: ''
+        password: '',     
       }
     };
   }
@@ -37,7 +38,7 @@ class UserDialog extends Component {
   
   signUp(e){
     e.preventDefault();
-    let {username,password}=this.state.formData;
+    let {email,username,password}=this.state.formData;
     let success=(user)=>{
       this.props.onSignIn.call(null,user);
     };
@@ -51,7 +52,7 @@ class UserDialog extends Component {
           break;
       }
     };
-    signUp(username,password,success,error);
+    signUp(email,username,password,success,error);
   }
   
   signIn(e){
@@ -92,13 +93,18 @@ class UserDialog extends Component {
   render(){
     let signUpForm=(
       <form className='signUp' onSubmit={this.signUp.bind(this)}>
-        <div className='row'>
-          <i className='iconfont'>&#xe62f;</i>
+        <div className='row inputbtn'>
+          <label>邮箱</label>
+          <input type='text' value={this.state.formData.email} 
+            onChange={this.changeFormData.bind(this,'email')}/>
+        </div>
+        <div className='row inputbtn'>
+          <label>用户名</label>
           <input type='text' value={this.state.formData.username} 
             onChange={this.changeFormData.bind(this,'username')}/>
         </div>
-        <div className='row'>
-          <i className='iconfont'>&#xe678;</i>
+        <div className='row inputbtn'>
+          <label>设置密码</label>
           <input type='password' value={this.state.formData.password} 
             onChange={this.changeFormData.bind(this,'password')}/>
         </div>
