@@ -91,7 +91,6 @@ class ToDo extends Component{
       newTodo:'',
       tododList:this.state.todoList
     }); 
-   
   }
   
   toggle(e,todo){
@@ -108,22 +107,10 @@ class ToDo extends Component{
   signOut(){
     signOut();
     let stateCopy=JSON.parse(JSON.stringify(this.state));
-    console.log('退出成功');
     stateCopy.user={};
     this.setState(stateCopy);//修改状态
   }
-  
-  //保存todo
-  /*save(){
-    let user=getCurrentUser();
-    console.log('开始保存');
-    console.log(user.id);
-    let todo = AV.Object.createWithoutData('_User', user.id);
-    todo.set('todo',deepCopy(this.state.todoList));
-    todo.save();//保存到云端
-  }*/
-  
- 
+
  
 }
     
@@ -134,6 +121,51 @@ function idMaker(){
   id+=1;
   return id;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

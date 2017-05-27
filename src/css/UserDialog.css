@@ -14,8 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   padding-left: 5px;
   padding-right: 10px;
-  border-right: 1px solid #ccc;
-    
+  border-right: 1px solid #ccc;   
 }
 
 .UserDialog-Wrapper {
@@ -59,18 +58,25 @@
 .UserDialog > .panes {
   padding: 0 1em 1em; 
 }
-.UserDialog form>.row{
-  height: 2.5em;
-  margin: 2em 0;
+
+.inputbtn {
   display: flex;
   border: 1px solid #ccc;
+  height: 2.5em;
+  margin: 2em 0;
+  height: 2.5em;
 }
 .UserDialog form>.row input { 
   margin-left: 5px;
   width: 95%;
   height: 100%;
   border: none;
-  outline: none;
+  outline: none; 
+}
+
+/*登录按钮*/
+.actions {
+  margin: 2em 0;
 }
 .UserDialog form>.row button {
   width: 100%;
@@ -79,6 +85,18 @@
   cursor: pointer;
   border: none;
   background-color: #E4393C;
+  display: block;
+}
+.actions a {
+  display: block;
+  text-decoration: none;
+  float: right;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  font-size: 15px;
+}
+.actions a:hover {
+  color: #E4393C;
 }
 .active {
   color: #E4393C;

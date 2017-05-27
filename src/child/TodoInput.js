@@ -17,7 +17,7 @@ class TodoInput extends Component {
     this.props.onChange(e);
   }
   submit(e){   
-    if( this.props.content && e.key==='Enter'){
+    if(this.props.content && e.key==='Enter'){
       this.props.onSubmit(e);
     }
   }

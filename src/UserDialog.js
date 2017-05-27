@@ -109,17 +109,18 @@ class UserDialog extends Component {
     );
     let signInForm=(
       <form className='signUp' onSubmit={this.signIn.bind(this)}> 
-        <div className='row'>
+        <div className='row inputbtn'>
           <i className='iconfont'>&#xe62f;</i>
           <input type='text' value={this.state.formData.username}
             onChange={this.changeFormData.bind(this,'username')}/>
         </div>
-        <div className='row'>
+        <div className='row inputbtn'>
           <i className='iconfont'>&#xe678;</i>
           <input type='password' value={this.state.formData.password} 
             onChange={this.changeFormData.bind(this,'password')}/>
         </div>
         <div className='row actions'>
+          <a href='javascript:;'>忘记密码</a>
           <button type='submit'>登录</button>
         </div>
       </form>
@@ -151,6 +152,7 @@ class UserDialog extends Component {
 }
 
 export default UserDialog
+
 
 
 
