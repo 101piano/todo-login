@@ -5,22 +5,22 @@ export default class SignUpForm extends Component {
     return (
       <form className='signUp' onSubmit={this.props.onSubmit.bind(this)}>
         <div className='row inputbtn'>
-          <label>ÓÊÏä</label>
-          <input type='text' value={this.state.formData.email} 
+          <label>é‚®ç®±</label>
+          <input type='text' value={this.props.formData.email} 
             onChange={this.props.onChange.bind(null,'email')}/>
         </div>
         <div className='row inputbtn'>
-          <label>ÓÃ»§Ãû</label>
-          <input type='text' value={this.state.formData.username} 
+          <label>ç”¨æˆ·å</label>
+          <input type='text' value={this.props.formData.username} 
             onChange={this.props.onChange.bind(null,'username')}/>
         </div>
         <div className='row inputbtn'>
-          <label>ÉèÖÃÃÜÂë</label>
-          <input type='password' value={this.state.formData.password} 
+          <label>è®¾ç½®å¯†ç </label>
+          <input type='password' value={this.props.formData.password} 
             onChange={this.props.onChange.bind(null,'password')}/>
         </div>
         <div className='row actions'>
-          <button type='submit'>×¢²á</button>
+          <button type='submit'>æ³¨å†Œ</button>
         </div>
       </form>  
     
