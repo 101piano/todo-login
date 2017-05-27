@@ -38,24 +38,24 @@
   background: #fff;
   border: 1px solid #aaa;
 }
-.UserDialog > nav {
+.UserDialog  nav {
   border-bottom: 1px solid #eee;
   padding: 1em 0;
 }
-.UserDialog > nav label {
+.UserDialog  nav label {
   width: 50%;
   box-sizing: border-box;
   display: inline-block;  
   text-align: center;
   cursor: pointer;
 }
-.UserDialog > nav label:first-child {
+.UserDialog  nav label:first-child {
   border-right: 1px solid #eee;
 }
-.UserDialog > nav label input[type=radio] { 
+.UserDialog  nav label input[type=radio] { 
   display: none;
 }
-.UserDialog > .panes {
+.UserDialog  .panes {
   padding: 0 1em 1em; 
 }
 

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './css/UserDialog.css';
-import {signUp,signIn} from './leanCloud';
+import {signUp,signIn,sendPasswordResetEmail} from './leanCloud';
 import {deepCopy} from './App';
 
 class UserDialog extends Component {
@@ -17,7 +17,9 @@ class UserDialog extends Component {
     };
   }
   componentDidUpdate(){
-    this.changeColor(this.state.selected);
+    if(this.state.selectedTab==='signInOrSignUp'){
+      this.changeColor(this.state.selected);
+    }    
   }
     
   switchOpt(e){
@@ -27,7 +29,7 @@ class UserDialog extends Component {
   }
   
   changeColor(selected){
-    let nav0=document.getElementsByTagName('nav')[0];   
+    let nav0=document.getElementsByTagName('nav')[0];
     if(selected==='signIn'){   
       nav0.getElementsByTagName('label')[0].classList.add('active');
       nav0.getElementsByTagName('label')[1].classList.remove('active');
@@ -163,6 +165,7 @@ class UserDialog extends Component {
           </div>
           <div className='row actions'>
             <button type='submit'>发送重置邮件</button>
+            <a href='#' onClick={this.returnToSignIn.bind(this)}>返回登录</a>
           </div>
         </form>
       </div>
@@ -179,6 +182,17 @@ class UserDialog extends Component {
   showForgotPassword(){
     let stateCopy=deepCopy(this.state);
     stateCopy.selectedTab='forgotPassword';
+    this.setState(stateCopy);
+  }
+  
+  resetPassword(e){
+    e.preventDefault();
+    sendPasswordResetEmail(this.state.formData.email);
+  }
+  
+  returnToSignIn(){
+    let stateCopy=deepCopy(this.state);
+    stateCopy.selectedTab='signInOrSignUp';
     this.setState(stateCopy);
   }
 }
