@@ -33,8 +33,9 @@ class ToDo extends Component{
                 return(
                   <li key={index} className='doneItem'>
                     <TodoItem todo={item}
-                     onToggle={this.toggle.bind(this)}
-                     onDelete={this.delete.bind(this)} />
+                      onToggle={this.toggle.bind(this)}
+                      onDelete={this.delete.bind(this)} 
+                    />
                   </li>
                 )
               });
@@ -49,7 +50,8 @@ class ToDo extends Component{
         <div className='inputWrapper'>
           <TodoInput content={this.state.newTodo}       
             onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)}/>
+            onSubmit={this.addTodo.bind(this)}
+          />
         </div>
         <div className='toDoing'>
           <h2>正在进行</h2>
@@ -66,12 +68,7 @@ class ToDo extends Component{
       </div>   
     )
   }
-   
-  componentDidUpdate(){
-    
-  } 
-
-  
+     
   //与todo相关的函数 
   changeTitle(e){
     this.setState({
