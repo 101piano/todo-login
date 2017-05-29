@@ -2,9 +2,8 @@
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import './css/ToDo.css';
-import AV from 'leancloud-storage';
-import {signOut,getCurrentUser,getUserFromAVUser} from './leanCloud';
-import {deepCopy} from './App';
+import {signOut,TodoModel} from './leanCloud';
+
 
 class ToDo extends Component{
   constructor(props){
@@ -78,7 +77,7 @@ class ToDo extends Component{
   }
   
   addTodo(e){
-    this.state.todoList.push({
+    /*this.state.todoList.push({
       id:idMaker(),
       title:e.target.value,
       status: null,
@@ -87,7 +86,23 @@ class ToDo extends Component{
     this.setState({
       newTodo:'',
       tododList:this.state.todoList
-    }); 
+    }); */
+    let newTodo={
+      title: e.target.value,
+      status: null,
+      deleted: false
+    }
+    TodoModel.create(newTodo,(id) => {
+      console.log(id);
+      newTodo.id = id     
+      this.state.todoList.push(newTodo)
+      this.setState({
+        newTodo: '',
+        todoList: this.state.todoList
+      })
+    },(error) => {
+      console.log(error);
+    })
   }
   
   toggle(e,todo){
@@ -113,11 +128,12 @@ class ToDo extends Component{
     
 export default ToDo;
 
-let id=0;
+/*let id=0;
 function idMaker(){
   id+=1;
   return id;
-}
+}*/
+
 
 
 

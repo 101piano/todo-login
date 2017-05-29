@@ -1,12 +1,12 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './../css/TodoInput.css';
 
 
 function submit(props,e) {
-  console.log(e);//代理Proxy
-  console.log(props);//Object，包含content,onChange(),onSubmit
-  console.log(this);//null
-  if(props.content && e.key==='Enter'){
+  //console.log(e);//代理Proxy
+  //console.log(props);//Object，包含content,onChange(),onSubmit
+  //console.log(this);//null
+  if(e.target.value.trim() !== '' && e.key==='Enter'){
     props.onSubmit(e);
   }
 }
