@@ -20,6 +20,7 @@ class App extends Component {
         let stateCopy=deepCopy(this.state)
         stateCopy.todoList=todos
         this.setState(stateCopy)
+        console.log(stateCopy.todoList);
       })
     }     
   }
@@ -43,8 +44,8 @@ class App extends Component {
     stateCopy.user=user;
     this.setState(stateCopy);
   }
-  
 } 
+
 
 export default App;
 

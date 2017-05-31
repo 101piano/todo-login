@@ -70,7 +70,7 @@ class ToDo extends Component{
   changeTitle(e){
     this.setState({
       newTodo: e.target.value,
-      todoList: this.state.todoList
+      todoList: this.props.todoList
     });
   }
   
@@ -95,8 +95,9 @@ class ToDo extends Component{
       this.state.todoList.push(newTodo)
       this.setState({
         newTodo: '',
-        todoList: this.state.todoList
+        todoList: this.props.todoList
       })
+      console.log()
     },(error) => {
       console.log(error);
     })
