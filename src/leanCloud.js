@@ -32,9 +32,15 @@ export const TodoModel={
     let todo=new Todo()
     todo.set('title',title)
     todo.set('status',status)
-    todo.set('deleted',deleted)
+    todo.set('deleted',deleted)    
+    //新建一个ACL实例
+    let acl=new AV.ACL();
+    acl.setPublicReadAccess(false);
+    acl.setWriteAccess(AV.User.current(),true);
+    
+    todo.setACL(acl);
+  
     todo.save().then(function(response){
-      console.log(response.id);
       successFn.call(null,response.id)
     },function(error){
       errorFn && errorFn.call(null,error)
