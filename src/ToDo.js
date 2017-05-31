@@ -13,14 +13,8 @@ class ToDo extends Component{
       newTodo: '',
       todoList:[]
     }; 
-    let user = getCurrentUser();
-    if(user) {
-      TodoModel.getByUser(user,(todos) => {
-        let stateCopy=deepCopy(this.state)
-        stateCopy.todoList=todos
-        this.setState(stateCopy)
-      })
-    }
+   
+   
   }
   
   
@@ -50,6 +44,15 @@ class ToDo extends Component{
                 )
               });
     let user=this.props.user;
+    if(user) {
+      TodoModel.getByUser(user,(todos) => {
+        console.log(todos);
+        console.log(this.state);
+        let stateCopy=deepCopy(this.state)
+        stateCopy.todoList=todos
+        this.setState(stateCopy)
+      })
+    }
  
     return (
       <div className='myToDo'>
