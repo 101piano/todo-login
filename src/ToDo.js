@@ -2,29 +2,19 @@
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import './css/ToDo.css';
-import {signOut,TodoModel,getCurrentUser} from './leanCloud';
-import {deepCopy} from './App';
+import {signOut,TodoModel} from './leanCloud';
 
 
 class ToDo extends Component{
   constructor(props){
     super(props);
     this.state={
-      newTodo: '',
-      todoList:[]
-    }; 
-    let user=getCurrentUser()
-     if(user) {
-      TodoModel.getByUser(user,(todos) => {
-        let stateCopy=deepCopy(this.state)
-        stateCopy.todoList=todos
-        this.setState(stateCopy)
-      })
-    } 
+      newTodo: '',   
+    };    
   }
    
   render(){
-    let todos=this.state.todoList
+    let todos=this.props.todoList
               .filter((item)=> !item.delete && !(item.status==='completed'))
               .map((item,index)=>{
                 return(
@@ -35,7 +25,7 @@ class ToDo extends Component{
                   </li>
                 )
               });
-    let dones=this.state.todoList
+    let dones=this.props.todoList
               .filter((item)=> !item.delete && item.status==='completed')
               .map((item,index)=>{
                 return(
@@ -47,14 +37,12 @@ class ToDo extends Component{
                   </li>
                 )
               });
-    let user=this.props.user;
-   
- 
+  
     return (
       <div className='myToDo'>
         <h1>
-          {user.username || '我'}的待办
-          {user.id ? <button className='quit' onClick={this.signOut.bind(this)}>退出</button> : null}
+          {this.props.user.username || '我'}的待办
+          {this.props.user.id ? <button className='quit' onClick={this.signOut.bind(this)}>退出</button> : null}
         </h1>
         <div className='inputWrapper'>
           <TodoInput content={this.state.newTodo}       

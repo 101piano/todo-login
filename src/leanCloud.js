@@ -17,7 +17,10 @@ export const TodoModel={
     let query=new AV.Query('Todo')
     query.find().then((response) => {
       let array=response.map((t) => {
-        return {id:t.id,...t.arrtibutes}
+        return {
+          id:t.id,
+          ...t.attributes
+        }
       })
       successFn.call(null,array)
     },(error) => {

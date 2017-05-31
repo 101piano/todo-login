@@ -4,22 +4,31 @@ import './css/App.css';
 import 'normalize.css';
 import './css/reset.css';
 import UserDialog from './UserDialog';
-import {getCurrentUser} from './leanCloud';
+import {getCurrentUser,TodoModel} from './leanCloud';
 
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      user: getCurrentUser() || {} 
+      user: getCurrentUser() || {},
+      todoList:[]
     };
+    //加载leancloud数据
+    if(this.state.user) {
+      TodoModel.getByUser(this.state.user,(todos) => {
+        let stateCopy=deepCopy(this.state)
+        stateCopy.todoList=todos
+        this.setState(stateCopy)
+      })
+    }     
   }
  
   render() {  
     return (
       <div className='App'>    
         {this.state.user.id ? 
-          <ToDo user={deepCopy(this.state.user)}/> : 
+          <ToDo user={deepCopy(this.state.user)} todoList={deepCopy(this.state.todoList)}/> : 
           <UserDialog 
             onSignUp={this.onSignUpOrSignIn.bind(this)}
             onSignIn={this.onSignUpOrSignIn.bind(this)}/>}  
@@ -47,6 +56,7 @@ export function deepCopy(user){
 
 
 
+  
 
 
 
