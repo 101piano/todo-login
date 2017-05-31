@@ -2,7 +2,8 @@
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import './css/ToDo.css';
-import {signOut,TodoModel} from './leanCloud';
+import {signOut,TodoModel,getCurrentUser} from './leanCloud';
+import {deepCopy} from './App';
 
 
 class ToDo extends Component{
@@ -12,7 +13,17 @@ class ToDo extends Component{
       newTodo: '',
       todoList:[]
     }; 
+    let user = getCurrentUser();
+    if(user) {
+      TodoModel.getByUser(user,(todos) => {
+        let stateCopy=deepCopy(this.state)
+        stateCopy.todoList=todos
+        this.setState(stateCopy)
+      })
+    }
   }
+  
+  
   
   render(){
     let todos=this.state.todoList
