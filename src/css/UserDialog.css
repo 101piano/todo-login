@@ -59,6 +59,7 @@
   padding: 0 1em 1em; 
 }
 
+/*注册登录*/
 .inputbtn {
   display: flex;
   border: 1px solid #ccc;
@@ -74,7 +75,7 @@
   outline: none; 
 }
 
-/*登录按钮*/
+
 .actions {
   margin: 2em 0;
 }
@@ -105,6 +106,7 @@
 .signUp .row label {
   background-color: red;
   display: inline-block;
+  width: 100px;
 }
 
 

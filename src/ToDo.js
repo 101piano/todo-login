@@ -13,12 +13,16 @@ class ToDo extends Component{
       newTodo: '',
       todoList:[]
     }; 
-   
-   
+    let user=getCurrentUser()
+     if(user) {
+      TodoModel.getByUser(user,(todos) => {
+        let stateCopy=deepCopy(this.state)
+        stateCopy.todoList=todos
+        this.setState(stateCopy)
+      })
+    } 
   }
-  
-  
-  
+   
   render(){
     let todos=this.state.todoList
               .filter((item)=> !item.delete && !(item.status==='completed'))
@@ -44,15 +48,7 @@ class ToDo extends Component{
                 )
               });
     let user=this.props.user;
-    if(user) {
-      TodoModel.getByUser(user,(todos) => {
-        console.log(todos);
-        console.log(this.state);
-        let stateCopy=deepCopy(this.state)
-        stateCopy.todoList=todos
-        this.setState(stateCopy)
-      })
-    }
+   
  
     return (
       <div className='myToDo'>
@@ -107,7 +103,6 @@ class ToDo extends Component{
       deleted: false
     }
     TodoModel.create(newTodo,(id) => {
-      console.log(id);
       newTodo.id = id     
       this.state.todoList.push(newTodo)
       this.setState({
