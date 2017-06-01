@@ -31,6 +31,7 @@ export default class SignInOrSignUp extends Component {
               <SignUpForm formData={this.props.formData}
                 onSubmit={this.props.onSignUp}
                 onChange={this.props.onChange} 
+                onForgotPassword={this.props.onForgotPassword}
               />
               : null}
             {this.state.selected === 'signIn' ? 
@@ -68,31 +69,6 @@ export default class SignInOrSignUp extends Component {
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

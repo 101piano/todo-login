@@ -50,6 +50,7 @@ class ToDo extends Component{
             onSubmit={this.addTodo.bind(this)}
           />
         </div>
+        
         <div className='toDoing'>
           <h2>正在进行</h2>
           <ol className='todoList'>
@@ -131,50 +132,6 @@ function idMaker(){
   id+=1;
   return id;
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

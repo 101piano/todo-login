@@ -12,7 +12,7 @@ export default class ForgotPasswordForm extends Component{
             <li><a href='#' onClick={this.props.onSignIn}>登录</a></li>
           </ul>
         </div>
-        <form className='forgotPasswordoform' onSubmit={this.props.onSubmit}>
+        <form className='forgotPasswordform' onSubmit={this.props.onSubmit}>
           <div className='row'>
             <label>邮箱:</label>
             <input type='text' value={this.props.formData.email}
@@ -26,34 +26,6 @@ export default class ForgotPasswordForm extends Component{
     )
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

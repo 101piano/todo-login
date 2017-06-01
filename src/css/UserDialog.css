@@ -126,6 +126,11 @@
   height: 130px;
   background-color: #F0F0F0;
 }
+.forgotPassword .header::after {
+  content: '';
+  display:block;
+  clear: both;
+}
 .forgotPassword .header h2 {
   color: #F04400;
   font-size: 40px;
