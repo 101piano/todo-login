@@ -50,8 +50,13 @@ export const TodoModel={
   update(){
     
   },
-  destroy(){
-    
+  destroy(todoId,successFn,errorFn){
+    let todo=AV.Object.createWithoutData('Todo',todoId);
+    todo.destroy().then(function (response) {
+      successFn && successFn.call(null)
+    },function(error){
+      errorFn && errorFn.call(null,error)
+    })
   }
   
 }

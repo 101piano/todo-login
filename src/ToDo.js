@@ -110,8 +110,10 @@ class ToDo extends Component{
   }
   
   delete(e,todo){
-    todo.delete=true;
-    this.setState(this.state);    
+    TodoModel.destroy(todo.id,() => {
+      todo.delete=true;
+      this.setState(this.state); 
+    })     
   }
   
   //与leanCloud相关的函数 
