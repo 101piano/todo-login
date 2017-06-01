@@ -17,7 +17,6 @@ export const TodoModel={
     let query=new AV.Query('Todo')
     query.find().then((response) => {
       let array=response.map((t) => {
-        console.log(t)
         return {
           id:t.id,
           ...t.attributes
@@ -37,6 +36,7 @@ export const TodoModel={
     //新建一个ACL实例
     let acl=new AV.ACL();
     acl.setPublicReadAccess(false);
+    acl.setReadAccess(AV.User.current(),true);
     acl.setWriteAccess(AV.User.current(),true);
     
     todo.setACL(acl);

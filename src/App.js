@@ -43,6 +43,13 @@ class App extends Component {
     let stateCopy=deepCopy(this.state);
     stateCopy.user=user;
     this.setState(stateCopy);
+    if(this.state.user) {
+      TodoModel.getByUser(this.state.user,(todos) => {
+        let stateCopy=deepCopy(this.state)
+        stateCopy.todoList=todos
+        this.setState(stateCopy)
+      })
+    }    
   }
 } 
 
