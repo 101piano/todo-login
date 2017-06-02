@@ -42,7 +42,7 @@ class ToDo extends Component{
     return (
       <div className='myToDo'>      
         <div className='header'> 
-          <div className='iconfont'>&#xe607;
+          <div className='iconfont'>&#xe682;
             <ul className='user'>
               <li>
                 {this.props.user.username}

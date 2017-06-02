@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'iconfont';  /* project id 316704 */
-  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot');
-  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 316826 */
+  src: url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.eot');
+  src: url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.svg#iconfont') format('svg');
 }
 
 .myToDo {
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 .iconfont .user {
-  display: none;
+ 
 }
 
 .myToDo .header .logo-word {

@@ -4,12 +4,12 @@ export default function(props){
   return (
       <form className='signIn' onSubmit={props.onSubmit}> 
         <div className='row inputbtn'>
-          <i className='iconfont'>&#xe62f;</i>
+          <i className='iconfont'>&#xe627;</i>
           <input type='text' value={props.formData.username}
             onChange={props.onChange.bind(null,'username')}/>
         </div>
         <div className='row inputbtn'>
-          <i className='iconfont'>&#xe678;</i>
+          <i className='iconfont'>&#xe65e;</i>
           <input type='password' value={props.formData.password} 
             onChange={props.onChange.bind(null,'password')}/>
         </div>
