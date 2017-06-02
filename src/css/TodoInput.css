@@ -1,10 +1,62 @@
-.TodoInput {
-  width: 100%;
-  line-height: 1.8;
-  margin-bottom: 2em;
-  font-size: 16px;
-  padding: 0 .2em;
-  border: none;
-  border: 1.9px solid #aaa;
-  border-radius: 5px;
+
+.TodoInput >.header >ul {
+  padding: 75px 0 75px 60px;
+  display: flex;
 }
+.TodoInput >.header >ul li {
+  width: 30%;
+}
+.TodoInput >.header >ul li:nth-child(3){
+  text-align: right;
+}
+.TodoInput >.header .iconfont {
+  font-family: "iconfont" !important;
+  font-size: 40px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #34A0DB;
+  cursor: pointer;
+}
+.TodoInput>.header .add-thing {
+  color: white;
+  text-align: center;
+  padding-top: .5em;
+  font-size: 1.5em;
+}
+
+
+.TodoInput>.inputs{
+  margin: 60px;
+}
+
+.TodoInput>.inputs input {
+  width: 100%;
+  background-color: transparent;  
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #7D86BA;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.TodoInput>.inputs button {
+  width: 100%;
+  background-color: #2EBAEE;  
+  border: none;
+  margin-top: 20px;
+  padding: 20px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+

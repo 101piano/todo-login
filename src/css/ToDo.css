@@ -10,7 +10,7 @@
 }
 
 /*页眉*/
-.myToDo .header {
+.myToDo >.header {
   min-width: 100%;
   height: 20em;  
   background: url("2.jpg") no-repeat ;
@@ -19,7 +19,7 @@
   border-radius: 2px 2px 0 0;
   position: relative;
 }
-.myToDo .header .iconfont{
+.myToDo >.header .iconfont{
   font-family: "iconfont" !important;
   font-size: 40px;
   -webkit-font-smoothing: antialiased;
@@ -30,10 +30,10 @@
   cursor: pointer;
 }
 .iconfont .user {
- 
+  display: none;
 }
 
-.myToDo .header .logo-word {
+.myToDo >.header .logo-word {
   color: #fff;
   font-size: 50px;
   margin-top: 30px;
@@ -42,30 +42,30 @@
   font-family: Times New Roman;
 }
 
-.myToDo .header .time {
+.myToDo >.header .time {
   color: #ccc;
   margin-top: 30px;
   margin-left: 30px;
 }
 
-.myToDo .header .calculate {
+.myToDo >.header .calculate {
   position: absolute;
   right: 20px;
   top: 50%;
   margin-top: -15px;
 }
 
-.myToDo .header .calculate  ul {
+.myToDo >.header .calculate  ul {
   display: flex;
 }
-.myToDo .header .calculate ul li {
+.myToDo >.header .calculate ul li {
   margin-right: 20px;
   text-align: right;
   font-size: 20px;
   color: #ccc;
   line-height: 1.5em;
 }
-.myToDo .header .calculate ul li .num {
+.myToDo >.header .calculate ul li .num {
   color: #fff;
   font-size: 30px;
 }
@@ -78,6 +78,51 @@
 
 .myToDo .to-doing h2 {
   color: #bbb;
+}
+
+/*已完成*/
+.myToDo .have-done {
+  margin: 30px 20px 50px 20px;
+}
+
+.myToDo .have-done h2 {
+  color: #bbb;
+}
+
+/**/
+
+.myToDo .add-wrap {
+  width: 100px;
+  height: 140px;
+  margin-left: 70%;
+}
+.myToDo .add-button {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #2EBAEE;
+  text-align: center;
+  line-height: 90px;
+}
+
+.myToDo .add-button .iconfont{
+  font-family: "iconfont" !important;
+  font-size: 50px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*TodoInput界面*/
+.myToDo .inputWrapper {
+  border-radius: 4px;
+  background: #46529D;
+  margin: 2em 2em 0 2em;
+  min-height: 100vh;
+  min-width: 40em;
+  box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  position: relative;
 }
 
 

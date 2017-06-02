@@ -17,12 +17,32 @@ function changeTitle(props,e) {
 
 export default function (props){
   return (
-    <input type='text' value={props.content} 
-      className='TodoInput'
-      placeholder='输入待办事项，回车'
-      onChange={changeTitle.bind(null,props)}
-      onKeyPress={submit.bind(null,props)}
-    />
+    <div className='TodoInput'>
+      <div className='header'>
+        <ul>
+          <li className='iconfont'>&#xe72f;</li>
+          <li className='add-thing'>添加待办事项</li>
+          <li className='iconfont'>&#xe6d2;</li>
+        </ul>     
+      </div>
+      <div className='logo-img'>
+       
+      </div>
+      <div className='inputs'>
+        <input type='text'  placeholder='私事？公事？'/>
+        <input type='text' value={props.content} 
+          className='todo-input'
+          placeholder='待办事项'
+          onChange={changeTitle.bind(null,props)}
+          onKeyPress={submit.bind(null,props)}
+        />
+        <input type='text'  placeholder='时间'/>
+        <button className='add'>添加</button>
+      </div>
+      
+      
+    </div>
+    
   )
 }
 

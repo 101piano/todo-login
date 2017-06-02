@@ -82,20 +82,17 @@ class ToDo extends Component{
             {todos}
           </ol>
         </div>
-        <div className='haveDone'>
+        <div className='have-done'>
           <h2>已经完成</h2>
           <ol className='doneList'>
             {dones}
           </ol>
         </div>
-      
-
-        <div className='inputWrapper'>
-          <TodoInput content={this.state.newTodo}       
-            onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)}
-          />
-        </div>  
+        <div className='add-wrap'>
+          <div className='add-button'>
+            <p className='iconfont'>&#xe6ad;</p>
+          </div> 
+        </div>               
       </div>  
 
 
@@ -103,6 +100,15 @@ class ToDo extends Component{
       
     )
   }
+  /*
+  <div className='inputWrapper'>
+          <TodoInput content={this.state.newTodo}       
+            onChange={this.changeTitle.bind(this)}
+            onSubmit={this.addTodo.bind(this)}
+          />
+        </div> 
+  
+  */
      
   //与todo相关的函数 
   changeTitle(e){
