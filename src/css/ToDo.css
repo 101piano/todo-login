@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'iconfont';  /* project id 316826 */
-  src: url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.eot');
-  src: url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_qks4fnwcyt9jxlxr.svg#iconfont') format('svg');
-}
 
 .myToDo {
   border-radius: 4px;
@@ -27,9 +19,9 @@
   border-radius: 2px 2px 0 0;
   position: relative;
 }
-.iconfont{
+.myToDo .header .iconfont{
   font-family: "iconfont" !important;
-  font-size: 50px;
+  font-size: 40px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;

@@ -9,7 +9,7 @@ class TodoItem extends Component {
           onChange={this.toggle.bind(this)}/>
         <span className='title'>{this.props.todo.title}</span>
         <div  className='delete' onClick={this.delete.bind(this)}>
-          <div className='.iconfont'>&#xe601;</div>         
+          <i className='iconfont'>&#xe601;</i>         
         </div>
       </div>
     )
