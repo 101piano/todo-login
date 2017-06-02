@@ -3,6 +3,7 @@ import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
 import './css/ToDo.css';
 import {signOut,TodoModel} from './leanCloud';
+import {deepCopy} from './App';
 
 
 class ToDo extends Component{
@@ -39,19 +40,43 @@ class ToDo extends Component{
               });
   
     return (
-      <div className='myToDo'>
-        <h1>
-          {this.props.user.username || '我'}的待办
-          {this.props.user.id ? <button className='quit' onClick={this.signOut.bind(this)}>退出</button> : null}
-        </h1>
-        <div className='inputWrapper'>
-          <TodoInput content={this.state.newTodo}       
-            onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)}
-          />
-        </div>
-        
-        <div className='toDoing'>
+      <div className='myToDo'>      
+        <div className='header'> 
+          <div className='iconfont'>&#xe607;
+            <ul className='user'>
+              <li>
+                {this.props.user.username}
+              </li>
+              <li>
+                设置
+              </li>
+              <li>
+                {this.props.user.id ? 
+                  <button className='quit' onClick={this.signOut.bind(this)}>退出</button> 
+                  :null
+                }
+              </li>
+            </ul>
+          </div>
+          <div className='logo-word'>
+            <p>Your</p>
+            <p>Things</p>
+          </div>        
+          <div className='time'><p>时间</p></div>
+          <div className='calculate'> 
+            <ul>
+              <li>
+                <p className='num'>xx</p>
+                <p>已完成</p>
+              </li>
+              <li>
+                <p className='num'>xx</p>
+                <p>未完成</p>
+              </li>
+            </ul>          
+          </div>         
+        </div>       
+        <div className='to-doing'>
           <h2>正在进行</h2>
           <ol className='todoList'>
             {todos}
@@ -63,7 +88,19 @@ class ToDo extends Component{
             {dones}
           </ol>
         </div>
-      </div>   
+      
+
+        <div className='inputWrapper'>
+          <TodoInput content={this.state.newTodo}       
+            onChange={this.changeTitle.bind(this)}
+            onSubmit={this.addTodo.bind(this)}
+          />
+        </div>  
+      </div>  
+
+
+    
+      
     )
   }
      
@@ -98,7 +135,6 @@ class ToDo extends Component{
         newTodo: '',
         todoList: this.props.todoList
       })
-      console.log()
     },(error) => {
       console.log(error);
     })
@@ -125,8 +161,9 @@ class ToDo extends Component{
   
   //与leanCloud相关的函数 
   signOut(){
+    console.log('我点退出了哦');
     signOut();
-    let stateCopy=JSON.parse(JSON.stringify(this.state));
+    let stateCopy=deepCopy(this.state);
     stateCopy.user={};
     this.setState(stateCopy);//修改状态
   }

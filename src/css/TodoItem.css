@@ -1,11 +1,19 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 316704 */
+  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot');
+  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.svg#iconfont') format('svg');
+}
+
+
 .TodoItem {
-  padding: .5em;
+  padding: 1em;
   display: flex;
   align-items: center;
   font-size: 20px;
-  background-color: #E4F5FC;
-  border:1px solid transparent;
-  border-radius: 8px;
+  border-bottom:1px solid #ccc;
   margin-bottom: 5px;
 }
 .TodoItem input[type=checkbox] {
@@ -21,28 +29,15 @@
   width: 23px;
   height: 23px;
 }
-.TodoItem .circle {
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  border: 1px solid #aaa;
-  border-radius: 50%;
-  background-color: #ccc;
-  top: 50%;
-  margin-top: -12px;
-  right: 0; 
-  cursor: pointer;
-}
-.TodoItem .circle p {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  margin-top: -12px;
-  margin-left: -6px;
+.iconfont{
+  font-family: "iconfont" !important;
+  font-size: 50px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  line-height: 23px;
-  font-size: 40px;
-  text-align: center;
+  padding-top: 25px;
+  margin-left: 30px;
+  cursor: pointer;
 }
 
 

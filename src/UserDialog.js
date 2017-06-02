@@ -4,7 +4,7 @@ import {signUp,signIn,sendPasswordResetEmail} from './leanCloud';
 import {deepCopy} from './App';
 import ForgotPasswordForm from './child/ForgotPasswordForm';
 import SignInOrSignUp from './child/SignInOrSignUp';  
-  
+
 
 class UserDialog extends Component {
   constructor(props){

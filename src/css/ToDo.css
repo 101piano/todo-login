@@ -1,24 +1,104 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 316704 */
+  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot');
+  src: url('//at.alicdn.com/t/font_781kpcc36qiwwmi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_781kpcc36qiwwmi.svg#iconfont') format('svg');
+}
+
 .myToDo {
-  color: #333;
-  border: 1px solid #aaa;
   border-radius: 4px;
   background: white;
-  margin: 2em;
-  padding: 0 1em;
+  margin: 2em 2em 0 2em;
   min-height: 100vh;
   min-width: 40em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  position: relative;
 }
-.myToDo h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+/*页眉*/
+.myToDo .header {
+  min-width: 100%;
+  height: 20em;  
+  background: url("2.jpg") no-repeat ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  border-radius: 2px 2px 0 0;
+  position: relative;
 }
-.myToDo .quit {
-  border: none;
-  background-color: transparent;
-  color: #ccc;
+.iconfont{
+  font-family: "iconfont" !important;
+  font-size: 50px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  padding-top: 25px;
+  margin-left: 30px;
   cursor: pointer;
-  margin-left: 3em;
-  outline: none;
 }
+.iconfont .user {
+  display: none;
+}
+
+.myToDo .header .logo-word {
+  color: #fff;
+  font-size: 50px;
+  margin-top: 30px;
+  margin-left: 30px;
+  line-height: 1.3em;
+  font-family: Times New Roman;
+}
+
+.myToDo .header .time {
+  color: #ccc;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.myToDo .header .calculate {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.myToDo .header .calculate  ul {
+  display: flex;
+}
+.myToDo .header .calculate ul li {
+  margin-right: 20px;
+  text-align: right;
+  font-size: 20px;
+  color: #ccc;
+  line-height: 1.5em;
+}
+.myToDo .header .calculate ul li .num {
+  color: #fff;
+  font-size: 30px;
+}
+
+/*正在进行*/
+
+.myToDo .to-doing {
+  margin: 30px 20px 30px 20px;
+}
+
+.myToDo .to-doing h2 {
+  color: #bbb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
