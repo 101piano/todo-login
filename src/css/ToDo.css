@@ -19,7 +19,8 @@
   border-radius: 2px 2px 0 0;
   position: relative;
 }
-.myToDo >.header .iconfont{
+
+.myToDo .header .sidebar>.iconfont{
   font-family: "iconfont" !important;
   font-size: 40px;
   -webkit-font-smoothing: antialiased;
@@ -28,9 +29,25 @@
   padding-top: 25px;
   margin-left: 30px;
   cursor: pointer;
+  position: relative;
 }
-.iconfont .user {
-  display: none;
+.myToDo >.header .user {
+  font-size: 25px;
+  line-height: 2em;
+  background: #7B9FD5;
+  position: absolute;
+  padding: 0 10px 10px 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.myToDo >.header .user .iconfont {
+  font-family: "iconfont" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+.myToDo >.header ul li:hover{
+  color: red;
 }
 
 .myToDo >.header .logo-word {

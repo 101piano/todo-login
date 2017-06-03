@@ -1,6 +1,7 @@
 ﻿import React,{Component} from 'react';
 import TodoInput from './child/TodoInput';
 import TodoItem from './child/TodoItem';
+import UserLogout from './child/UserLogout';
 import './css/ToDo.css';
 import {signOut,TodoModel} from './leanCloud';
 import {deepCopy} from './App';
@@ -10,7 +11,8 @@ class ToDo extends Component{
   constructor(props){
     super(props);
     this.state={
-      newTodo: '',   
+      newTodo: '',
+      showUserLogout: true
     };    
   }
    
@@ -38,25 +40,20 @@ class ToDo extends Component{
                   </li>
                 )
               });
-  
+             
     return (
       <div className='myToDo'>      
         <div className='header'> 
-          <div className='iconfont'>&#xe682;
-            <ul className='user'>
-              <li>
-                {this.props.user.username}
-              </li>
-              <li>
-                设置
-              </li>
-              <li>
-                {this.props.user.id ? 
-                  <button className='quit' onClick={this.signOut.bind(this)}>退出</button> 
-                  :null
-                }
-              </li>
-            </ul>
+          <div className='sidebar'>
+            <p className='iconfont' onClick={this.handleToggleClick.bind(this)}>
+              {this.state.showUserLogout ? false: true }
+              &#xe682;
+            </p>
+            <UserLogout
+              userLogout={this.state.showUserLogout} 
+              user={this.props.user}
+              onClick={this.signOut.bind(this)}
+            />
           </div>
           <div className='logo-word'>
             <p>Your</p>
@@ -93,11 +90,7 @@ class ToDo extends Component{
             <p className='iconfont'>&#xe6ad;</p>
           </div> 
         </div>               
-      </div>  
-
-
-    
-      
+      </div>      
     )
   }
   /*
@@ -109,7 +102,12 @@ class ToDo extends Component{
         </div> 
   
   */
-     
+  
+  handleToggleClick(){
+    this.setState(prevState => ({
+      showUserLogout: !prevState.showUserLogout
+    }));
+  }
   //与todo相关的函数 
   changeTitle(e){
     this.setState({
@@ -167,7 +165,6 @@ class ToDo extends Component{
   
   //与leanCloud相关的函数 
   signOut(){
-    console.log('我点退出了哦');
     signOut();
     let stateCopy=deepCopy(this.state);
     stateCopy.user={};
@@ -178,14 +175,5 @@ class ToDo extends Component{
 }
     
 export default ToDo;
-
-/*let id=0;
-function idMaker(){
-  id+=1;
-  return id;
-}*/
-
-
-
 
 
