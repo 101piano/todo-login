@@ -13,7 +13,7 @@ class ToDo extends Component{
     this.state={
       newTodo: '',
       showUserLogout: false,
-      onshowTodoInput: true
+      onshowTodoInput: false
     };    
   }
    
@@ -60,15 +60,18 @@ class ToDo extends Component{
             <p>Your</p>
             <p>Things</p>
           </div>        
-          <div className='time'><p>时间</p></div>
-          <div className='calculate'> 
+          <div className='date-num'> 
             <ul>
               <li>
-                <p className='num'>xx</p>
+                <p>2017.0x.0x</p>
+                <p>星期x</p>
+              </li>
+              <li>
+                <p className='num'>{todos.length}</p>
                 <p>已完成</p>
               </li>
               <li>
-                <p className='num'>xx</p>
+                <p className='num'>{dones.length}</p>
                 <p>未完成</p>
               </li>
             </ul>          
@@ -93,11 +96,12 @@ class ToDo extends Component{
             </p>
           </div> 
         </div> 
-          <TodoInput content={this.state.newTodo}       
-            onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)}
-            xx={this.state.onshowTodoInput}
-          />
+        <TodoInput content={this.state.newTodo}       
+          onChange={this.changeTitle.bind(this)}
+          onSubmit={this.addTodo.bind(this)}
+          onxx={this.state.onshowTodoInput}
+          onyy={this.showTodoInput.bind(this)}
+        />
       </div>      
     )
   }

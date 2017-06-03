@@ -3,9 +3,6 @@ import './../css/TodoInput.css';
 
 
 function submit(props,e) {
-  //console.log(e);//代理Proxy
-  //console.log(props);//Object，包含content,onChange(),onSubmit
-  //console.log(this);//null
   if(e.target.value.trim() !== '' && e.key==='Enter'){
     props.onSubmit(e);
   }
@@ -16,14 +13,16 @@ function changeTitle(props,e) {
 }
 
 export default function (props){
-  if(!props.xx) {
+  if(!props.onxx) {
     return null;
   }
   return (
     <div className='TodoInput'>
       <div className='header'>
         <ul>
-          <li className='iconfont active'>&#xe72f;</li>
+          <li className='iconfont active' onClick={props.onyy}>
+            &#xe72f;           
+          </li>
           <li className='add-thing'>添加待办事项</li>
           <li className='iconfont active'>&#xe6d2;</li>
         </ul>     
@@ -37,10 +36,8 @@ export default function (props){
         />
       </div>      
     </div>
-    
   )
 }
-
 
 
 

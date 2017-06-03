@@ -7,10 +7,14 @@
   min-width: 30em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
   position: fixed;
-  bottom: 10em;
+  bottom: 8em;
+  animation: myTodoInput .5s;
   right: 0;
 }
-
+@keyframes myTodoInput {
+  0% {right: -30em;} 
+  100% {right: 0;}
+}
 .TodoInput >.header >ul {
   padding: 75px 0 75px 60px;
   display: flex;

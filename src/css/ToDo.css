@@ -46,7 +46,7 @@
   -moz-osx-font-smoothing: grayscale; 
 }
 
-.myToDo >.header ul li:hover{
+.myToDo >.header .sidebar ul li:hover{
   color: red;
 }
 
@@ -59,36 +59,26 @@
   font-family: Times New Roman;
 }
 
-.myToDo >.header .time {
-  color: #ccc;
-  margin-top: 30px;
-  margin-left: 30px;
-}
-
-.myToDo >.header .calculate {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  margin-top: -15px;
-}
-
-.myToDo >.header .calculate  ul {
+.myToDo >.header .date-num ul {
+  margin: 20px 30px;
   display: flex;
 }
-.myToDo >.header .calculate ul li {
-  margin-right: 20px;
+.myToDo >.header .date-num ul li {
+  width: 10em;
   text-align: right;
   font-size: 20px;
-  color: #ccc;
+  color: #eee;
   line-height: 1.5em;
 }
-.myToDo >.header .calculate ul li .num {
+.myToDo >.header .date-num ul li:first-child {
+   text-align:center;
+}
+.myToDo >.header ul li .num {
   color: #fff;
   font-size: 30px;
 }
 
 /*正在进行*/
-
 .myToDo .to-doing {
   margin: 30px 20px 30px 20px;
 }
@@ -106,25 +96,29 @@
   color: #bbb;
 }
 
-/**/
-
+/*添加按钮*/
 .myToDo .add-wrap {
   width: 100px;
   height: 140px;
   margin-left: 70%;
+  position: fixed;
+  bottom: 5.5em;
+  right: 1em;
 }
 .myToDo .add-button {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: #2EBAEE;
   text-align: center;
-  line-height: 90px;
+  line-height: 80px;
 }
-
+.myToDo .add-button:hover {
+  opacity: 0.6;
+}
 .myToDo .add-button .iconfont{
   font-family: "iconfont" !important;
-  font-size: 50px;
+  font-size: 40px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
