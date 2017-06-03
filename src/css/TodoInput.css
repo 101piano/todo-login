@@ -22,6 +22,7 @@
 .TodoInput >.header >ul li {
   width: 30%;
 }
+
 .TodoInput >.header >ul li:nth-child(3){
   text-align: right;
 }
@@ -32,6 +33,9 @@
   -moz-osx-font-smoothing: grayscale;
   color: #34A0DB;
   cursor: pointer;
+}
+.TodoInput >.header .iconfont:hover {
+  color: red;
 }
 
 .TodoInput>.header .add-thing {

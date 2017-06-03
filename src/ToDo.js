@@ -41,6 +41,35 @@ class ToDo extends Component{
                   </li>
                 )
               });
+    let date=new Date(),
+        year=date.getFullYear(),//年
+        month=date.getMonth()+1,//月0-11
+        day=date.getDate(), //日1-31
+        week=date.getDay();//星期0-6
+    switch(week){
+      case 1:
+        week = '一';
+        break;
+      case 2:
+        week = '二';
+        break;
+      case 3:
+        week = '三';
+        break;
+      case 4:
+        week = '四';
+        break;
+      case 5:
+        week = '五';
+        break;
+      case 6:
+        week = '六';
+        break;
+      case 0:
+        week = '日';
+        break;
+      default:break;
+    }
              
     return (
       <div className='myToDo'>      
@@ -63,8 +92,8 @@ class ToDo extends Component{
           <div className='date-num'> 
             <ul>
               <li>
-                <p>2017.0x.0x</p>
-                <p>星期x</p>
+                <p>{year}-{month}-{day}</p>
+                <p>星期{week}</p>
               </li>
               <li>
                 <p className='num'>{todos.length}</p>

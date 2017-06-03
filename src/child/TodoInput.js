@@ -20,11 +20,11 @@ export default function (props){
     <div className='TodoInput'>
       <div className='header'>
         <ul>
-          <li className='iconfont active' onClick={props.onyy}>
+          <li className='iconfont' onClick={props.onyy}>
             &#xe72f;           
           </li>
           <li className='add-thing'>添加待办事项</li>
-          <li className='iconfont active'>&#xe6d2;</li>
+          <li className='iconfont'>&#xe6d2;</li>
         </ul>     
       </div>
       <div className='inputs'>     
