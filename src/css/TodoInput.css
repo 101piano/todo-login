@@ -1,3 +1,15 @@
+/*TodoInput界面*/
+.TodoInput{
+  border-radius: 4px;
+  background: #46529D;
+  margin: 2em 2em 0 2em;
+  min-height: 10em;
+  min-width: 30em;
+  box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  position: fixed;
+  bottom: 10em;
+  right: 0;
+}
 
 .TodoInput >.header >ul {
   padding: 75px 0 75px 60px;
@@ -17,16 +29,16 @@
   color: #34A0DB;
   cursor: pointer;
 }
+
 .TodoInput>.header .add-thing {
   color: white;
   text-align: center;
   padding-top: .5em;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
-
 .TodoInput>.inputs{
-  margin: 60px;
+  margin: 10px 60px;
 }
 
 .TodoInput>.inputs input {
@@ -41,15 +53,6 @@
   color: #fff;
 }
 
-.TodoInput>.inputs button {
-  width: 100%;
-  background-color: #2EBAEE;  
-  border: none;
-  margin-top: 20px;
-  padding: 20px 0;
-  font-size: 20px;
-  color: #fff;
-}
 
 
 

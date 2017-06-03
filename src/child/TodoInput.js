@@ -16,31 +16,26 @@ function changeTitle(props,e) {
 }
 
 export default function (props){
+  if(!props.xx) {
+    return null;
+  }
   return (
     <div className='TodoInput'>
       <div className='header'>
         <ul>
-          <li className='iconfont'>&#xe72f;</li>
+          <li className='iconfont active'>&#xe72f;</li>
           <li className='add-thing'>添加待办事项</li>
-          <li className='iconfont'>&#xe6d2;</li>
+          <li className='iconfont active'>&#xe6d2;</li>
         </ul>     
       </div>
-      <div className='logo-img'>
-       
-      </div>
-      <div className='inputs'>
-        <input type='text'  placeholder='私事？公事？'/>
+      <div className='inputs'>     
         <input type='text' value={props.content} 
           className='todo-input'
-          placeholder='待办事项'
+          placeholder='待办事项,回车'
           onChange={changeTitle.bind(null,props)}
           onKeyPress={submit.bind(null,props)}
         />
-        <input type='text'  placeholder='时间'/>
-        <button className='add'>添加</button>
-      </div>
-      
-      
+      </div>      
     </div>
     
   )
@@ -74,22 +69,6 @@ export default function (props){
   }
 }
 export default TodoInput*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

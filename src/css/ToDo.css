@@ -4,7 +4,7 @@
   background: white;
   margin: 2em 2em 0 2em;
   min-height: 100vh;
-  min-width: 40em;
+  min-width: 50em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
   position: relative;
 }
@@ -131,16 +131,6 @@
   cursor: pointer;
 }
 
-/*TodoInput界面*/
-.myToDo .inputWrapper {
-  border-radius: 4px;
-  background: #46529D;
-  margin: 2em 2em 0 2em;
-  min-height: 100vh;
-  min-width: 40em;
-  box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
-  position: relative;
-}
 
 
 

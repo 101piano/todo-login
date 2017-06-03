@@ -12,7 +12,8 @@ class ToDo extends Component{
     super(props);
     this.state={
       newTodo: '',
-      showUserLogout: true
+      showUserLogout: false,
+      onshowTodoInput: true
     };    
   }
    
@@ -87,27 +88,32 @@ class ToDo extends Component{
         </div>
         <div className='add-wrap'>
           <div className='add-button'>
-            <p className='iconfont'>&#xe6ad;</p>
+            <p className='iconfont' onClick={this.showTodoInput.bind(this)}>&#xe6ad;
+              {this.state.onshowTodoInput ? false:true}
+            </p>
           </div> 
-        </div>               
-      </div>      
-    )
-  }
-  /*
-  <div className='inputWrapper'>
+        </div> 
           <TodoInput content={this.state.newTodo}       
             onChange={this.changeTitle.bind(this)}
             onSubmit={this.addTodo.bind(this)}
+            xx={this.state.onshowTodoInput}
           />
-        </div> 
-  
-  */
+      </div>      
+    )
+  }
+
   
   handleToggleClick(){
     this.setState(prevState => ({
       showUserLogout: !prevState.showUserLogout
     }));
   }
+  
+  showTodoInput(){
+    this.setState(prevState => ({
+      onshowTodoInput: !prevState.onshowTodoInput
+    }));
+  } 
   //与todo相关的函数 
   changeTitle(e){
     this.setState({
