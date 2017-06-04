@@ -1,10 +1,8 @@
 import AV from 'leancloud-storage';
 
 
-/*var APP_ID = 'LzQW0DEPEdxCqtgo9ePKkzsm-gzGzoHsz';
-var APP_KEY = 'F4tJ4JqjmUChkRhLNsAbt99r';*/
-var APP_ID = 'dnIzD5F6Wy7vvyadQE1Gunrp-gzGzoHsz';
-var APP_KEY = 'NC3fmxY4de5IDf1shEJpCoHF';
+var APP_ID = 'LzQW0DEPEdxCqtgo9ePKkzsm-gzGzoHsz';
+var APP_KEY = 'F4tJ4JqjmUChkRhLNsAbt99r';
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY

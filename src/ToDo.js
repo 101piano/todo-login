@@ -203,7 +203,6 @@ class ToDo extends Component{
   
   //与leanCloud相关的函数 
   signOut(e){
-    console.log('点解了');
     this.props.onClick(e);
   }
 

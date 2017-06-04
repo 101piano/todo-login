@@ -36,6 +36,7 @@ class UserDialog extends Component {
               onSubmit={this.resetPassword.bind(this)} 
               onChange={this.changeFormData.bind(this)} 
               onSignIn={this.returnToSignIn.bind(this)}
+              onSignUp={this.returnToSignUp.bind(this)}
             />
           }
         </div>
@@ -111,6 +112,11 @@ class UserDialog extends Component {
   }
   
   returnToSignIn(){
+    let stateCopy=deepCopy(this.state);
+    stateCopy.selectedTab='signInOrSignUp';
+    this.setState(stateCopy);
+  }
+  returnToSignUp(){
     let stateCopy=deepCopy(this.state);
     stateCopy.selectedTab='signInOrSignUp';
     this.setState(stateCopy);

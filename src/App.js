@@ -58,7 +58,6 @@ class App extends Component {
     }    
   }
   signOut(){
-    console.log('我点击了');
     signOut();
     let stateCopy=deepCopy(this.state);
     console.log(stateCopy.id);
