@@ -68,14 +68,14 @@ export const TodoModel={
 }
 
 //注册
-export function signUp(email,username,password,successFn,errorFn){
+export function signUp(email,username,password,successFn,errorFn){ 
   let user=new AV.User();
+  //设置邮箱
+  user.setEmail(email);
   //设置用户名
   user.setUsername(username);
   //设置密码
-  user.setPassword(password);
-  //设置邮箱
-  user.setEmail(email);
+  user.setPassword(password);  
   user.signUp().then(function(loginedUser){
     let user = getUserFromAVUser(loginedUser);
     successFn.call(null,user);  
@@ -124,6 +124,8 @@ function getUserFromAVUser(AVUser){
     ...AVUser.attributes
   }
 }
+
+
 
 
 

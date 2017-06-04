@@ -97,11 +97,11 @@ class ToDo extends Component{
               </li>
               <li>
                 <p className='num'>{todos.length}</p>
-                <p>已完成</p>
+                <p>未完成</p>
               </li>
               <li>
                 <p className='num'>{dones.length}</p>
-                <p>未完成</p>
+                <p>已完成</p>
               </li>
             </ul>          
           </div>         

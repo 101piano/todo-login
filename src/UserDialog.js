@@ -55,11 +55,22 @@ class UserDialog extends Component {
         case 202:
           alert('用户名已被占用');
           break;
+        case 203:
+          alert('电子邮箱地址已经被占用');
         default:
           alert(error);
           break;
       }
     };
+    if(!isValidEmail(email)) {
+      alert('请提供有效的邮箱地址');
+    }
+    if(!isValidUsername(username)){
+      alert('请提供有效的用户名');
+    }
+    if(!isValidPassword(password)){
+      alert('请提供有效的密码');
+    }
     signUp(email,username,password,success,error);
   }
   
@@ -126,7 +137,33 @@ class UserDialog extends Component {
 export default UserDialog
 
 
+//判断邮箱
+function isValidEmail(str){
+  let result=/^[a-zA-Z0-9]\w+@[a-zA-Z0-9]+(\.com)$/.test(str);
+  return result;
+}
 
+//判断用户名
+function isValidUsername(str){
+  let result=/[^\r\n]{3,10}/.test(str);
+  return result;
+}
+
+//判断密码
+function isValidPassword(str) {
+  if(str.legnth<6 || str.length>10 || /\W/.test(str))
+    return false;
+  var cond=0;
+  if(/[A-Z]/.test(str)) cond++;
+  if(/[a-z]/.test(str)) cond++;
+  if(/[0-9]/.test(str)) cond++;
+  if(/_/.test(str)) cond++;
+  if(cond>=2) {
+    return true;
+  }else {
+    return false;
+  }
+}
 
 
 
