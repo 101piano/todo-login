@@ -4,7 +4,7 @@ import './css/App.css';
 import 'normalize.css';
 import './css/reset.css';
 import UserDialog from './UserDialog';
-import {getCurrentUser,TodoModel} from './leanCloud';
+import {getCurrentUser,TodoModel,signOut} from './leanCloud';
 
 
 class App extends Component {
@@ -28,10 +28,17 @@ class App extends Component {
     return (
       <div className='App'>    
         {this.state.user.id ? 
-          <ToDo user={deepCopy(this.state.user)} todoList={deepCopy(this.state.todoList)}/> : 
+          <ToDo 
+            user={deepCopy(this.state.user)} 
+            todoList={deepCopy(this.state.todoList)}
+            onClick={this.signOut.bind(this)}
+          /> 
+          : 
           <UserDialog 
             onSignUp={this.onSignUpOrSignIn.bind(this)}
-            onSignIn={this.onSignUpOrSignIn.bind(this)}/>}  
+            onSignIn={this.onSignUpOrSignIn.bind(this)}
+          />
+        }  
       </div>
     );
   }
@@ -50,6 +57,16 @@ class App extends Component {
       })
     }    
   }
+  signOut(){
+    console.log('我点击了');
+    signOut();
+    let stateCopy=deepCopy(this.state);
+    console.log(stateCopy.id);
+    stateCopy.user={};
+    this.setState(stateCopy);//修改状态
+  }
+
+  
 } 
 
 

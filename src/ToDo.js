@@ -43,9 +43,9 @@ class ToDo extends Component{
               });
     let date=new Date(),
         year=date.getFullYear(),//年
-        month=date.getMonth()+1,//月0-11
-        day=date.getDate(), //日1-31
-        week=date.getDay();//星期0-6
+        month=date.getMonth()+1,//月，0-11
+        day=date.getDate(), //日，1-31
+        week=date.getDay();//星期，0-6
     switch(week){
       case 1:
         week = '一';
@@ -134,7 +134,6 @@ class ToDo extends Component{
       </div>      
     )
   }
-
   
   handleToggleClick(){
     this.setState(prevState => ({
@@ -203,11 +202,9 @@ class ToDo extends Component{
   }
   
   //与leanCloud相关的函数 
-  signOut(){
-    signOut();
-    let stateCopy=deepCopy(this.state);
-    stateCopy.user={};
-    this.setState(stateCopy);//修改状态
+  signOut(e){
+    console.log('点解了');
+    this.props.onClick(e);
   }
 
  
